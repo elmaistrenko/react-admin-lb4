@@ -1,0 +1,43 @@
+{
+  "name": "react-admin-lb4",
+  "version": "1.0.0",
+  "description": "Loopback 4 data provider for react-admin",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel index.js -d babel && ./node_modules/.bin/mocha test/index.js --timeout=10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmaistrenko/react-admin-lb4.git"
+  },
+  "keywords": [
+    "react-admin",
+    "loopback4",
+    "data-provider"
+  ],
+  "author": "elmaistrenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elmaistrenko/react-admin-lb4/issues"
+  },
+  "homepage": "https://github.com/elmaistrenko/react-admin-lb4#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@loopback/boot": "^1.0.10",
+    "@loopback/context": "^1.4.1",
+    "@loopback/core": "^1.1.4",
+    "@loopback/openapi-v3": "^1.1.7",
+    "@loopback/repository": "^1.1.3",
+    "@loopback/rest": "^1.5.3",
+    "@loopback/rest-explorer": "^1.1.6",
+    "@loopback/service-proxy": "^1.0.6",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.3.0"
+  }
+}
