@@ -20,11 +20,12 @@ const [
     'GET_ONE'
 ];
 
-const lb4Provider = (apiUrl, idParamApi='_id', idParamAdmin='id', ftch=fetch) => {
-    const getOptions = (type, body) => {
+const lb4Provider = (apiUrl, headers = () => {}, idParamApi='_id', idParamAdmin='id', ftch=fetch) => {
+    const getOptions = async (type, body) => {
         const options = {
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                ...(await headers())
             }
         };
         if (body) {
@@ -78,7 +79,7 @@ const lb4Provider = (apiUrl, idParamApi='_id', idParamAdmin='id', ftch=fetch) =>
         if (filter && Object.keys(filter).length > 0)
             setWhere(url, filter, 'where');
         url.pathname = path.filter(Boolean).join('/');
-        return (await (await ftch(url.toString(), getOptions())).json()).count;
+        return (await (await ftch(url.toString(), await getOptions())).json()).count;
     };
 
 
@@ -150,7 +151,7 @@ const lb4Provider = (apiUrl, idParamApi='_id', idParamAdmin='id', ftch=fetch) =>
         if (sort)
             setOrder(url, sort);
 
-        const options = getOptions(type, data);
+        const options = await getOptions(type, data);
         let item;
         if ( [ DELETE ].indexOf(type) > -1 )
             item = await fn(GET_ONE, resource, { id });
