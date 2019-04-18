@@ -62,8 +62,7 @@ const lb4Provider = (apiUrl, headers = () => {}, idParamApi='_id', idParamAdmin=
             }
             if (any instanceof Object) {
                 Object.keys(any).forEach(p => {
-                    key = `${key}[${p === idParamAdmin ? idParamApi: p}]`;
-                    fn(any[p], key);
+                    fn(any[p], `${key}[${p === idParamAdmin ? idParamApi: p}]`);
                 });
                 return;
             }
