@@ -1,6 +1,6 @@
 {
   "name": "react-admin-lb4",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Loopback 4 data provider for react-admin",
   "main": "index.js",
   "scripts": {
