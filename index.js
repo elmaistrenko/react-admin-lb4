@@ -136,7 +136,9 @@ const lb4Provider = (apiUrl, headers = () => {}, idParamApi='_id', idParamAdmin=
                 }
                 return { data: r.map(el => el[idParamAdmin]) };
             }
-            _.set(filter, `${idParamApi}.inq`, ids);
+            if (ids.length > 1) {
+                _.set(filter, `${idParamApi}.inq`, ids);
+            }
         }
         if (filter && Object.keys(filter).length > 0) {
             if ( [ UPDATE_MANY ].indexOf(type) > -1 )
